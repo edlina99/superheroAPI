@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/SuperHeroAPI/bin/Debug/net6.0/SuperHeroAPI.exe
+/SuperHeroAPI/bin/*
 /.vs/SuperHeroAPI/v17
-/bin
-/obj
+/bin/*
+/obj/*

@@ -12,7 +12,8 @@ namespace SuperHeroAPI.DataAccess
         public UserDto InsertUser(User user)
         {
             var result = _dbContext.Users.Add(user);
-            if (result != null)
+            var db = _dbContext.SaveChanges();
+            if( db > 0)
             {
                 UserDto userResult = new UserDto()
                 {

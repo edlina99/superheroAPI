@@ -4,10 +4,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using SuperHeroAPI.AppService;
+using SuperHeroAPI.AppService.User;
 using SuperHeroAPI.Entities.User;
 using SuperHeroAPI.ViewModels;
 
@@ -19,14 +22,16 @@ namespace SuperHeroAPI.Controllers
     {
         public static User user = new User();
         private readonly IConfiguration configuration;
+        private IUserAppservice _userAppService;
 
-        public AuthController (IConfiguration configuration)
+        public AuthController (IConfiguration configuration, IUserAppservice userAppService)
         {
             this.configuration = configuration;
+            _userAppService = userAppService;
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register (RegisterViewModel request)
+        public async Task<ActionResult<ResultViewModel>> Register (RegisterViewModel request)
         {
             var result = new ResultViewModel()
             {
@@ -38,21 +43,27 @@ namespace SuperHeroAPI.Controllers
             try
             {
                 CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
-
+                var registerUser = new User()
+                {
+                    Name = request.Name,
+                    Username = request.Username,
+                    Password = Encoding.ASCII.GetBytes(request.Password),
+                    PasswordSalt = passwordSalt,
+                    PasswordHash = passwordHash,
+                    Place = request.Place
+                };
+                var user = _userAppService.RegisterUser(registerUser);
+                result.ErrorCode = "200";
+                result.ErrorDescription = "";
+                result.Success = true;
+                result.Result = user;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                result.ErrorDescription = $"Type exception: {ex.GetType}. Error Message:{ex.Message}";
             }
 
-            user.Username = request.Username;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
-
-
-
-            return Ok(user);
+            return Ok(result);
         }
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login (RegisterViewModel request)
