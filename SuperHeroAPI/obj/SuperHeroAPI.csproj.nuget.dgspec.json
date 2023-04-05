@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/adlinamohamad/Projects/superheroAPI/SuperHeroAPI/SuperHeroAPI.csproj": {}
+    "C:\\Development\\AEM\\superheroAPI\\SuperHeroAPI\\SuperHeroAPI.csproj": {}
   },
   "projects": {
-    "/Users/adlinamohamad/Projects/superheroAPI/SuperHeroAPI/SuperHeroAPI.csproj": {
+    "C:\\Development\\AEM\\superheroAPI\\SuperHeroAPI\\SuperHeroAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/adlinamohamad/Projects/superheroAPI/SuperHeroAPI/SuperHeroAPI.csproj",
+        "projectUniqueName": "C:\\Development\\AEM\\superheroAPI\\SuperHeroAPI\\SuperHeroAPI.csproj",
         "projectName": "SuperHeroAPI",
-        "projectPath": "/Users/adlinamohamad/Projects/superheroAPI/SuperHeroAPI/SuperHeroAPI.csproj",
-        "packagesPath": "/Users/adlinamohamad/.nuget/packages/",
-        "outputPath": "/Users/adlinamohamad/Projects/superheroAPI/SuperHeroAPI/obj/",
+        "projectPath": "C:\\Development\\AEM\\superheroAPI\\SuperHeroAPI\\SuperHeroAPI.csproj",
+        "packagesPath": "C:\\Users\\ShahrizalHanafiahAEM\\.nuget\\packages\\",
+        "outputPath": "C:\\Development\\AEM\\superheroAPI\\SuperHeroAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/adlinamohamad/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ShahrizalHanafiahAEM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -71,8 +76,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -84,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

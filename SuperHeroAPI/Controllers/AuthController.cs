@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using SuperHeroAPI.Entities.User;
+using SuperHeroAPI.ViewModels;
 
 namespace SuperHeroAPI.Controllers
 {
@@ -24,18 +26,36 @@ namespace SuperHeroAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register (UserDto request)
+        public async Task<ActionResult<User>> Register (RegisterViewModel request)
         {
-            CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
+            var result = new ResultViewModel()
+            {
+                Success = false,
+                ErrorCode = "400",
+                ErrorDescription = "Something went wrong during registration.",
+                Result = null                
+            };
+            try
+            {
+                CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
             user.Username = request.Username;
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
+
+
             return Ok(user);
         }
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login (UserDto request)
+        public async Task<ActionResult<string>> Login (RegisterViewModel request)
         {
             if (user.Username != request.Username)
             {
