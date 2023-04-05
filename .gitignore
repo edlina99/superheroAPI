@@ -6,3 +6,5 @@
 /.vs/SuperHeroAPI/v17
 /bin/*
 /obj/*
+/SuperHeroAPI/obj
+/.vs/SuperHeroAPI/DesignTimeBuild
