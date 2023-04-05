@@ -7,6 +7,6 @@ namespace SuperHeroAPI.ViewModels
         [Required]
         public string Username { get; set; } = string.Empty;
         [Required]
-        public byte[] Password { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -66,8 +66,9 @@ namespace SuperHeroAPI.Controllers
             return Ok(result);
         }
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login (RegisterViewModel request)
+        public async Task<ActionResult<string>> Login (LoginViewModel request)
         {
+            //Check username & password in database
             if (user.Username != request.Username)
             {
                 return BadRequest("User not found");

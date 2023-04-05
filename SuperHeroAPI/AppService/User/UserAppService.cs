@@ -11,6 +11,12 @@ namespace SuperHeroAPI.AppService
         {
             _userRepository = userRepository;
         }
+
+        public bool LoginUser(Data.User user)
+        {
+            //Create repo to check user's username & password
+        }
+
         public UserDto RegisterUser(Data.User user)
         {
             user.Created_At = DateTime.UtcNow;
