@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SuperHeroAPI.AppService;
@@ -68,43 +69,32 @@ namespace SuperHeroAPI.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login (LoginViewModel request)
         {
-            //Check username & password in database
-            if (user.Username != request.Username)
+            var result = new ResultViewModel()
             {
-                return BadRequest("User not found");
-            }
-
-            if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
-            {
-                return BadRequest("Wrong password");
-            }
-
-            string token = CreateToken(user);
-
-            return Ok(token);
-        }
-
-        private string CreateToken(User user)
-        {
-            List<Claim> claims = new List<Claim>
-            {
-                new Claim (ClaimTypes.Name, user.Username)
+                Success = false,
+                ErrorCode = "400",
+                ErrorDescription = "Something went wrong during login.",
+                Result = null
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
-                this.configuration.GetSection("AppSettings:Token").Value));
+            try
+            {
+                var loginUser = new User()
+                {
+                    Username = request.Username,
+                    Password = Encoding.ASCII.GetBytes(request.Password),
+                };
+                return Ok(_userAppService.LoginUser(loginUser));
+            }
+            catch (Exception ex)
+            {
+                result.ErrorDescription = $"Type exception: {ex.GetType}. Error Message:{ex.Message}";
+            }
 
-            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: cred);
-
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return jwt;
+            return Ok(result);
         }
+
+        
 
         private void CreatePasswordHash (string password, out byte[] passwordHash, out byte[] passwordSalt)
         {

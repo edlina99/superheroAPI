@@ -29,5 +29,18 @@ namespace SuperHeroAPI.DataAccess
                 return new UserDto();
             }
         }
+
+        public User GetUser(String username, byte[] password)
+        {
+            var result = _dbContext.Users.Where(x=> x.Username==username && x.Password==password).FirstOrDefault();
+            if( result != null)
+            {
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

@@ -1,0 +1,47 @@
+﻿<Properties StartupConfiguration="{154B7F35-4685-457F-846A-7D4915DF7D2D}|SuperHeroAPI">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/adlinamohamad/Documents/GitHub/superheroAPI/SuperHeroAPI/Controllers/AuthController.cs" relfile="SuperHeroAPI/Controllers/AuthController.cs" line="91" column="1" />
+      <Breakpoint file="/Users/adlinamohamad/Documents/GitHub/superheroAPI/SuperHeroAPI/Controllers/AuthController.cs" relfile="SuperHeroAPI/Controllers/AuthController.cs" line="81" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="SuperHeroAPI/AppService/User/UserAppService.cs">
+    <Files>
+      <File FileName="SuperHeroAPI/Controllers/AuthController.cs" />
+      <File FileName="SuperHeroAPI/AppService/User/UserAppService.cs" Line="38" Column="20" />
+      <File FileName="SuperHeroAPI/appsettings.json" />
+      <File FileName="SuperHeroAPI/Data/DataContext.cs" />
+      <File FileName="SuperHeroAPI/Program.cs" />
+      <File FileName="SuperHeroAPI/DataAccess/UserRepository.cs" />
+      <File FileName="SuperHeroAPI/Entities/User/UserDto.cs" />
+      <File FileName="SuperHeroAPI/Data/User.cs" />
+      <File FileName="SuperHeroAPI/AppService/User/IUserAppservice.cs" />
+      <File FileName="SuperHeroAPI/Data/Log.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SuperHeroAPI-latest" expanded="True">
+            <Node name="SuperHeroAPI-latest" expanded="True" selected="True">
+              <Node name="AppService" expanded="True">
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="DataAccess" expanded="True" />
+              <Node name="Entities" expanded="True">
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.SuperHeroAPI-latest PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
